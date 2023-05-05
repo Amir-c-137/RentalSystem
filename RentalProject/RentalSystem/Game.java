@@ -33,7 +33,7 @@ public class Game extends Item {
     }
 
     public void setAvailable(boolean available) {
-        this.isAvailable = available;
+        isAvailable = available;
     }
 
     public boolean isAvailable() {
