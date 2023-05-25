@@ -1,47 +1,55 @@
 package org.example;
-import java.util.*;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+//       1- read from json
+        Gson gson = new Gson(); // create a new Gson object
+        Reader reader = new FileReader("C:\\Users\\trool\\OneDrive\\Desktop\\code stuff\\RentalSystem FinalV\\RentalSystem\\RentalProject\\src\\test\\TestYourFork.json"); // open the input file
+        AllModules allModulesList = gson.fromJson(reader, new TypeToken<AllModules>() {
+        }.getType());
+        Customer Joshn = allModulesList.getCustomers().get(0);
+        Customer Emily = allModulesList.getCustomers().get(1);
+        Customer Brown = allModulesList.getCustomers().get(2);
+        for (Item tempItem : allModulesList.getBooks()) {
+            if (tempItem.ID == 3) {
+                RentalStore.rentItem(tempItem, Joshn);
+            } else if (tempItem.ID == 6) {
+                RentalStore.rentItem(tempItem, Joshn);
+            }
+        }
+        for (Item tempItem : allModulesList.getBooks()) {
+            if (tempItem.ID == 1) {
+                RentalStore.rentItem(tempItem, Emily);
+            } else if (tempItem.ID == 7) {
+                RentalStore.rentItem(tempItem, Emily);
+            }
+        }
+        for (Item tempItem : allModulesList.getBooks()) {
+            if (tempItem.ID == 9) {
+                RentalStore.rentItem(tempItem, Brown);
+            } else if (tempItem.ID == 4) {
+                RentalStore.rentItem(tempItem, Brown);
+            }
+        }
+        reader.close();
+//      2-write in json
+        Gson writing = new Gson();
+        String json = writing.toJson(allModulesList);
+        String filePath ="C:\\Users\\trool\\OneDrive\\Desktop\\code stuff\\RentalSystem FinalV\\RentalSystem\\RentalProject\\src\\test\\TestYourFork.json";
+        try {
+            FileWriter writer = new FileWriter(filePath);
+            writer.write(json);
+            writer.close();
+            System.out.println("JSON Data has been updated");
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
 
-        RentalStore rentalStore = new RentalStore();
-
-        Customer customer1 = new Customer("mammad" , "hello@gmail.com" , "09111234567" , "tehran" , 2222);
-        rentalStore.register(customer1);
-
-        Customer customer2 = new Customer("amir" , "bye@gmail.com" , "09117654321" , "sari" , 6565);
-        rentalStore.register(customer2);
-
-        List actorsList = Arrays.asList("kelashehshgar poli" , "ziarati"
-                                         , "Ali" , "izad" , "maryam");
-        ArrayList<String> actors = new ArrayList<>();
-        actors.addAll(actorsList);
-        Date date = new Date();
-
-        Movie FirstMovie = new Movie("The lord of the rings" , "fantasy" , "jackson" , actors , date , 111);
-        rentalStore.addMovie(FirstMovie);
-
-        Movie SecondMovie = new Movie("fight club" , "action" , "fincher" , actors , date , 1234);
-        rentalStore.addMovie(SecondMovie);
-
-        Movie ThirdMovie = new Movie("the dark knight" , "super hero" , "nolan" , actors , date , 911);
-        rentalStore.addMovie(ThirdMovie);
-/*
-        System.out.println(rentalStore.getAvailableMovies());
-        rentalStore.rentMovie(SecondMovie, customer1);
-        System.out.println(rentalStore.getAvailableMovies());
-        rentalStore.returnMovie(SecondMovie, customer1);
-        System.out.println(rentalStore.getAvailableMovies());
-
-        System.out.println(rentalStore.getCustomerById(2222));
-
-        System.out.println(rentalStore.getMovieById(911));
-
-        System.out.println(rentalStore.getRentals().get(0).getRentalDate());
-        System.out.println(rentalStore.getRentals().get(0).getReturnDate());
-
-        rentalStore.removeMovie(FirstMovie);
-        System.out.println(rentalStore.getAvailableMovies());
-        */
     }
+
 }

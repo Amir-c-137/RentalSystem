@@ -1,50 +1,48 @@
 package org.example;
-import java.util.*;
-public class Book extends Item {
+import java.util.Date;
 
-    private String author;
-    private int pages;
-    private boolean isAvailable;
+class Book extends Item {
 
-    public Book(String title, String genre, Date releaseDate, String author, int pages, int ID) {
-        this.title = title;
-        this.genre = genre;
-        this.releaseDate = releaseDate;
+    public String author;
+    public String publisher;
+
+    public Book(String title, String genre, String author, String publisher, Date releaseDate, long ID) {
+        super(title, genre, releaseDate, ID);
         this.author = author;
-        this.pages = pages;
-        this.id = ID;
+        this.publisher = publisher;
         this.isAvailable = true;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getGenre() {
         return genre;
     }
 
-    public String getAuthor() {
+    public String getauthor() {
         return author;
     }
 
+    public String getpublisher() {
+        return publisher;
+    }
+
+    @Override
     public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public int getID() {
-        return id;
+    @Override
+    public long getID() {
+        return ID;
     }
 
-    public void setAvailable(boolean available) {
+    @Override
+    public void setAvailable(Boolean available) {
         isAvailable = available;
-    }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
-
-    public int getPages() {
-        return pages;
     }
 }

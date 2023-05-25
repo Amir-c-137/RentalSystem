@@ -1,28 +1,24 @@
 package org.example;
-import  java.util.*;
-public class Movie extends Item{
-    private String director;
-    private ArrayList<String> cast = new ArrayList<>();
-    private boolean IsAvailable;
 
-    public Movie(String title, String genre, String director, ArrayList <String> cast, Date releaseDate, int id) {
-        this.title = title;
-        this.genre = genre;
+import java.util.Date;
+
+class Movie extends Item {
+    public String director;
+    public String cast;
+
+    public Movie(String title, String genre, String director, String cast, Date releaseDate, long ID) {
+        super(title, genre, releaseDate, ID);
         this.director = director;
         this.cast = cast;
-        this.releaseDate = releaseDate;
-        this.id = id;
-        this.IsAvailable = true; // movie is IsAvailable for rent by default
+        this.isAvailable = true;
     }
 
-    public int getId() {
-        return id;
-    }
-
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getGenre() {
         return genre;
     }
@@ -31,20 +27,22 @@ public class Movie extends Item{
         return director;
     }
 
-    public ArrayList<String> getCast() {
+    public String getCast() {
         return cast;
     }
 
+    @Override
     public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public boolean isAvailable() {
-        return IsAvailable;
+    @Override
+    public long getID() {
+        return ID;
     }
 
-    public void setAvailable(boolean CurrentStatus) {
-        IsAvailable = CurrentStatus;
+    @Override
+    public void setAvailable(Boolean available) {
+        isAvailable = available;
     }
-
 }

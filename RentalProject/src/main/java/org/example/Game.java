@@ -1,21 +1,24 @@
 package org.example;
-import java.util.*;
-public class Game extends Item {
-    private String platform;
-    private boolean isAvailable;
 
-    public Game(String title, String genre, Date releaseDate, String platform, int Id) {
-        this.title = title;
-        this.genre = genre;
-        this.releaseDate = releaseDate;
-        this.id = Id;
+import java.util.Date;
+
+public class Game extends Item {
+    public String platform;
+    public String publisher;
+
+    public Game(String title, String genre, String platform, String publisher, Date releaseDate, long ID) {
+        super(title, genre, releaseDate, ID);
+        this.platform = platform;
+        this.publisher = publisher;
         this.isAvailable = true;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
 
+    @Override
     public String getGenre() {
         return genre;
     }
@@ -24,21 +27,22 @@ public class Game extends Item {
         return platform;
     }
 
+    public String getPublisher() {
+        return publisher;
+    }
+
+    @Override
     public Date getReleaseDate() {
         return releaseDate;
     }
 
-    public int getID() {
-        return id;
+    @Override
+    public long getID() {
+        return ID;
     }
 
-    public void setAvailable(boolean available) {
+    @Override
+    public void setAvailable(Boolean available) {
         isAvailable = available;
     }
-
-    public boolean isAvailable() {
-        return isAvailable;
-    }
 }
-
-

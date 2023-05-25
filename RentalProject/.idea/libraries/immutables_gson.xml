@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="immutables.gson" type="repository">
+    <properties maven-id="org.immutables:gson:2.2.10" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/immutables/gson/2.2.10/gson-2.2.10.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.5/gson-2.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
