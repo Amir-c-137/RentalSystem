@@ -40,7 +40,7 @@ public class RentalStore {
         for (Movie movie : movieList) {
             if (movie.isAvailable == true)
                 System.out.println(
-                        i + ". " + movie.title + " by " + movie.director + " and it's genre is " + movie.genre);
+                        i + ". " + movie.title + " by " + movie.director + " and the genre is " + movie.genre);
             i++;
         }
     }
@@ -51,7 +51,7 @@ public class RentalStore {
         for (Game game : gameList) {
             if (game.isAvailable == true)
                 System.out.println(
-                        i + ". " + game.title + " by " + game.publisher + " and it's genre is " + game.genre);
+                        i + ". " + game.title + " by " + game.publisher + " and the genre is " + game.genre);
             i++;
         }
     }
@@ -62,7 +62,7 @@ public class RentalStore {
         for (Book book : bookList) {
             if (book.isAvailable == true)
                 System.out.println(
-                        i + ". " + book.title + " by " + book.author + " and it's genre is " + book.genre);
+                        i + ". " + book.title + " by " + book.author + " and the genre is " + book.genre);
             i++;
         }
     }
