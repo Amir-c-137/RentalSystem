@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class RentalStore {
     public static ArrayList<Item> itemList = new ArrayList<>();
-    public static ArrayList<Customer> memberStore = new ArrayList<>();
     public static ArrayList<Movie> movieList = new ArrayList<>();
     public static ArrayList<Game> gameList = new ArrayList<>();
     public static ArrayList<Book> bookList = new ArrayList<>();
     public static ArrayList<Rental> rentalList = new ArrayList<>();
+    public static ArrayList<Customer> members = new ArrayList<>();
 
     public static void register(Customer customer) {
-        memberStore.add(customer);
+        members.add(customer);
     }
 
     public static void addMovie(Movie movie) {
@@ -88,14 +88,14 @@ public class RentalStore {
 
     public static Customer getCustomerById(long ID) {
         Customer tempCustomer = null;
-        Boolean isExisted = false;
-        for (Customer temp : memberStore) {
+        Boolean doesExist = false;
+        for (Customer temp : members) {
             if (temp.ID == ID) {
                 tempCustomer = temp;
-                isExisted = true;
+                doesExist = true;
             }
         }
-        if (!isExisted) {
+        if (!doesExist) {
             System.out.println("there is no user with this specific ID");
         } else {
             System.out.println("user name is " + tempCustomer.name);
@@ -108,14 +108,14 @@ public class RentalStore {
 
     public static Movie getMovieById(long ID) {
         Movie tempMovie = null;
-        Boolean isExisted = false;
+        Boolean doesExist = false;
         for (Movie temp : movieList) {
             if (temp.ID == ID) {
                 tempMovie = temp;
-                isExisted = true;
+                doesExist = true;
             }
         }
-        if (!isExisted) {
+        if (!doesExist) {
             System.out.println("there is no movie with this specific ID");
         } else {
             System.out.println("movie title is " + tempMovie.title);
